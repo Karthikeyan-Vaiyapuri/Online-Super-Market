@@ -1,0 +1,111 @@
+﻿@model Fresh_Express.Models.User
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: poppins;
+        background: linear-gradient(120deg,#2980b9,#8e44ad);
+        height: 100vh;
+    }
+
+    .center {
+        width: 600px;
+        background: white;
+        border-radius: 10px;
+    }
+
+    form {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+        form .txt-field {
+            position: relative;
+            border-bottom: 2px solid black;
+            margin: 20px 0;
+        }
+
+    .txt-field {
+        width: 80%;
+        font-size: 16px;
+        border: none;
+        background: white;
+        outline: none;
+    }
+
+    h2 {
+        padding: 20px;
+    }
+
+    .btn-login {
+        width: 80%;
+        height: 50px;
+        border: 1px solid;
+        background: #101820;
+        border-radius: 25px;
+        font-size: 18px;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+
+        .btn-login:hover {
+            background: #FEE715;
+            transform: scale(1.1);
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <center>
+        <div class="center">
+            <h2>Login</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "txt-field" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "txt-field" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Login" class="btn-login" />
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.ActionLink("Register as a new user?", "Register", "Home")
+            </div>
+            <br />
+        </div>
+    </center>
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+      window.onload = function () {
+          alert("@ViewBag.Message");
+      };
+
+    </script>
+}
+
+    @*@section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@

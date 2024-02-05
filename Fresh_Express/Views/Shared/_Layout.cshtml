@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Express</title>
+
+                                @*CSS FILE*@
+    <link href="~/Css/Style.css" rel="stylesheet" />
+    <link href="~/Css/cart.css" rel="stylesheet" />
+    <link href="~/Css/Footer.css" rel="stylesheet" />
+
+                               @*Cart Icon*@
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   
+</head>
+<body>
+    <div class="parallax">
+        <div class="page-title">Fresh Express</div>
+    </div>
+    <div class="menu" id="sticky">
+        <ul class="menu-ul">
+            <li>@Html.ActionLink("Home", "index", "Home", null, new { @class = "a-menu" })</li>
+            <li><a href="#Vegetables" class="a-menu">Vegetables</a></li>
+            <li><a href="#Fruits" class="a-menu">Fruits</a></li>
+            <li><a href="#Dals" class="a-menu">Dals</a></li>
+            
+             @*  <li>@Html.ActionLink("Vegetables", "#Dals", "index", "Home", null, new { @class = "a-menu" })</li>
+                 <li>@Html.ActionLink("Fruits", "fruits", "Home", null, new { @class = "a-menu" })</li>
+                 <li>@Html.ActionLink("Dal", "dal", "Home", null, new { @class = "a-menu" })</li>
+                 <li>@Html.ActionLink("Meat", "meat", "Home", null, new { @class = "a-menu" })</li>
+            *@
+        </ul>
+        @*<div class="search-box">
+            <form>
+                <input type="text" placeholder="search..." name="search" class="search-input" />
+                <button type="submit"><i><img src="~/images/bg_img/Search_icon.svg" alt="search" /></i></button>
+            </form>
+        </div>*@
+
+        <ul class="menu-ul">
+            <li>@Html.ActionLink("Login", "Login", "Home", null, new { @class = "a-menu" })</li>
+            <li>@Html.ActionLink("Register", "Register", "Home", null, new { @class = "a-menu" })</li>
+        </ul>
+
+        <div class="menu-ul">
+            <div class="nav">
+                <div class="box">
+                    <div class="cart-count">0</div>
+                    <ion-icon name="cart" id="cart-icon"></ion-icon>
+                </div>
+                <div class="cart">
+                    <div class="cart-title">
+                        Cart Items
+                    </div>
+                    <div class="cart-content">
+
+                    </div>
+                    <div class="total">
+                        <div class="total-title">Total</div>
+                        <div class="total-price">Rs.0</div>
+       
+                    </div>
+                    <input type="button" class="btn-buy" onclick="placeOrder()" value="Place Order" />
+                    @*<button class="btn-buy" onclick="placeOrder()">Place Order</button>*@
+                    <ion-icon name="close" id="cart-close"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Fresh<span>Express</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+                |
+                <a href="#">Blog</a>
+            </p>
+
+            <p class="footer-company-name">Copyright © 2021 <strong>FreshExpress</strong> All rights reserved</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p>
+                    <span>Namakkal</span>
+                    TamilNadu
+                </p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 8675767800</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:karthivaiyapuri9237@gmail.com">karthivaiyapuri@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Fresh Express</strong> A supermarket is a self-service shop offering a wide variety of Vegetables, Fruits and Dals organized into sections.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Java_Script/addToCart.js"></script>
+</body>
+
+</html>
